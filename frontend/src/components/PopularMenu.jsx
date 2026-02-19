@@ -8,7 +8,7 @@ const PopularMenu = () => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const res = await fetch('/api/recipes');
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes`);
                 if (res.ok) {
                     const data = await res.json();
                     // Take only the first 3 items for "Popular" section, or more if needed

@@ -9,7 +9,7 @@ const AdminMessages = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const res = await fetch('/api/messages', {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/messages`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 const data = await res.json();
@@ -26,7 +26,7 @@ const AdminMessages = () => {
     const handleDelete = async (id) => {
         if (!window.confirm('Delete this message?')) return;
         try {
-            const res = await fetch(`/api/messages/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/messages/${id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });

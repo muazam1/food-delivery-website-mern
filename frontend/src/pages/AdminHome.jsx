@@ -12,9 +12,9 @@ const AdminHome = () => {
                 const headers = { Authorization: `Bearer ${token}` };
 
                 const [usersRes, menuRes, messagesRes] = await Promise.all([
-                    fetch('/api/users', { headers }),
-                    fetch('/api/recipes'),
-                    fetch('/api/messages', { headers })
+                    fetch(`${import.meta.env.VITE_API_URL}/api/users`, { headers }),
+                    fetch(`${import.meta.env.VITE_API_URL}/api/recipes`),
+                    fetch(`${import.meta.env.VITE_API_URL}/api/messages`, { headers })
                 ]);
 
                 const usersData = await usersRes.json();

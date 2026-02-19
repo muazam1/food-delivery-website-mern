@@ -9,12 +9,6 @@ export default defineConfig({
     react()
   ],
   server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
+    // Proxy removed in favor of VITE_API_URL specific configuration
   },
 })

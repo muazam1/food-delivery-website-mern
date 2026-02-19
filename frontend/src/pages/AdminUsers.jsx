@@ -9,7 +9,7 @@ const AdminUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await fetch('/api/users', {
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
                     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
                 });
                 if (res.ok) {
@@ -30,7 +30,7 @@ const AdminUsers = () => {
     const handleDelete = async (id) => {
         if (!window.confirm('Are you sure you want to delete this user?')) return;
         try {
-            const res = await fetch(`/api/users/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });

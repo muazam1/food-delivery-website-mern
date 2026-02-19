@@ -11,7 +11,7 @@ const AdminMenu = () => {
 
     const fetchRecipes = async () => {
         try {
-            const res = await fetch('/api/recipes');
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes`);
             if (!res.ok) {
                 throw new Error(`Server error: ${res.status}`);
             }
@@ -56,7 +56,7 @@ const AdminMenu = () => {
         const toastId = toast.loading("Adding item...");
 
         try {
-            const res = await fetch('/api/recipes', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -87,7 +87,7 @@ const AdminMenu = () => {
 
         const token = localStorage.getItem('token');
         try {
-            const res = await fetch(`/api/recipes/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/recipes/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -196,10 +196,10 @@ const AdminMenu = () => {
                                                         : (item.image.startsWith('images/')
                                                             ? `/${item.image}`
                                                             : (item.image.startsWith('/uploads/')
-                                                                ? item.image // Serve from frontend public/uploads
+                                                                ? `${import.meta.env.VITE_API_URL}${item.image}` // Serve from backend uploads
                                                                 : (item.image.startsWith('/')
-                                                                    ? `http://localhost:5000${item.image}`
-                                                                    : `http://localhost:5000/${item.image}`)))
+                                                                    ? `${import.meta.env.VITE_API_URL}${item.image}`
+                                                                    : `${import.meta.env.VITE_API_URL}/${item.image}`)))
                                                 }
                                                 alt={item.name}
                                                 style={{ width: '40px', height: '40px', borderRadius: '8px', objectFit: 'cover', marginRight: '10px' }}
