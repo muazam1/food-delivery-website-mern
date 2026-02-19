@@ -8,8 +8,12 @@ Welcome to the Food Delivery Website project! This is a full-stack web applicati
 -   **Browse Menu**: View a variety of food items with images and descriptions.
 -   **Shopping Cart**: Add items to the cart and manage orders.
 -   **Order Placement**: Seamless checkout process.
--   **Admin Panel**: (If applicable) Manage food items and orders.
--   **Responsive Design**: optimized for both desktop and mobile devices.
+-   **Admin Panel**:
+    -   **Dashboard**: Overview of application statistics.
+    -   **Menu Management (CRUD)**: Create, Read, Update, and Delete food items.
+    -   **User Management**: View and manage registered users.
+    -   **Messages**: Read and respond to user messages/inquiries.
+-   **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ## 🛠 Tech Stack
 
